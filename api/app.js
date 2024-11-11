@@ -9,7 +9,7 @@ app.get("/", (req, res) => {
   res.json([
     {
       id: "001",
-      title: "Book Review: The Bear & The Nightingale.",
+      title: "Book Review: The Bear & The Nightingale.--",
     },
     {
       id: "002",
@@ -22,6 +22,10 @@ app.get("/", (req, res) => {
     {
       id: "004",
       title: "Show Review: Alice in Borderland",
+    },
+    {
+      id: "005",
+      title: "show review: Good product!",
     },
   ]);
 });

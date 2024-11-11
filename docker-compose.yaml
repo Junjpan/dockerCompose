@@ -6,6 +6,22 @@ services:
     container_name: api_c #any name you want to give
     ports:
       - '4000:4000' #allow to local port map to container port
-    volumes:
+    volumes: #allow real time updates
       - './api:/app' #for this path, we can just use the relative path,
       - '/app/node_modules'  #annymous volume that point to container, just make sure that the node modules folder in the container won't get deleted because of the other volume we have
+  myblog:
+    build: ./myBlog
+    container_name: myblog_c
+    ports:
+      - "3000:3000"
+    # volumes: this one won't work in window because the way docker works on windows using wsl is a bit different, but it still
+    # able to work in mac or if you are running on Linux
+    # volumes:
+    #   - './myBlog:/app'
+    #   - '/app/node_modules'
+    stdin_open: true
+    tty: true
+    # adding stdin_open and tty to true basically starts the container in interactive mode 
+    # the options stdin_open and tty are used to configure how Docker handles input and output streams for a container, particularly when running interactive applications or when you need an interactive shell.
+
+   
