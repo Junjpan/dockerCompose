@@ -1,0 +1,11 @@
+#set up this file on top of all the services
+version: '3.8' #the version of docker compose
+services:
+  api:  #the name of the service, you can just use the foldername for clarify, but you can just use any of the name if you want
+    build: ./api  #the directory that you put your dockerfile
+    container_name: api_c #any name you want to give
+    ports:
+      - '4000:4000' #allow to local port map to container port
+    volumes:
+      - './api:/app' #for this path, we can just use the relative path,
+      - '/app/node_modules'  #annymous volume that point to container, just make sure that the node modules folder in the container won't get deleted because of the other volume we have
